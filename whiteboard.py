@@ -27,3 +27,17 @@ def solution(string):
     delimiter = re.compile('[-_ ][A-Za-z]')
     return delimiter.sub(lambda match: match.group()[-1].upper(), string)
 
+
+def solution(string):
+    if '-' in string:
+        words = string.split('-')
+    elif '_' in string:
+        words = string.split('_')
+    else:
+        words = string.split()
+    
+    for i in range(len(words)):
+        if i != 0:
+            words[i] = words[i].title()
+    return ''.join(words)
+
