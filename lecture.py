@@ -412,3 +412,247 @@ end = time.time()
 
 print(f"It took {end - start} seconds to find stone_100000")
 
+
+line_break()
+line_break()
+
+
+contacts = [
+    ("Alice", "555-1234"),
+    ("Bob", "555-5678"),
+    ("Charlie", "555-9012"),
+    ("David", "555-3456"),
+    ("Emma", "555-7890"),
+    ("Frank", "555-2345"),
+    ("Grace", "555-6789"),
+    ("Henry", "555-0123"),
+    ("Ivy", "555-4567"),
+    ("Jack", "555-8901"),
+    ("Kate", "555-3456"),
+    ("Liam", "555-7890"),
+    ("Mia", "555-2345"),
+    ("Noah", "555-6789"),
+    ("Olivia", "555-0123"),
+    ("Peter", "555-4567"),
+    ("Quinn", "555-8901"),
+    ("Rachel", "555-2345"),
+    ("Sam", "555-6789"),
+    ("Taylor", "555-0123"),
+    ("Uma", "555-4567"),
+    ("Victor", "555-8901"),
+    ("Wendy", "555-2345"),
+    ("Xavier", "555-6789"),
+    ("Yara", "555-0123"),
+    ("Zoe", "555-4567"),
+    ("Grace", "555-6789"),
+    ("Henry", "555-0123"),
+    ("Ivy", "555-4567"),
+    ("Jack", "555-8901"),
+    ("Kate", "555-3456"),
+    ("Liam", "555-7890"),
+    ("Mia", "555-2345"),
+    ("Noah", "555-6789"),
+    ("Olivia", "555-0123"),
+    ("Peter", "555-4567"),
+    ("Quinn", "555-8901"),
+    ("Rachel", "555-2345"),
+    ("Sam", "555-6789"),
+    ("Taylor", "555-0123"),
+    ("Uma", "555-4567"),
+    ("Victor", "555-8901"),
+    ("Wendy", "555-2345"),
+    ("Xavier", "555-6789"),
+    ("Yara", "555-0123"),
+    ("Zoe", "555-4567")
+]
+
+my_people = [("Victor", "555-5555"), ("Chris", "444-4444")]
+
+
+def get_phone_number(address_book, target_name):
+    num_checks = 0
+    # Loop through each tuple in the address book - unpack tuple - 0-index is name, 1-index is number
+    for name, number in address_book:
+        num_checks += 1
+        # Compare the name to the target name
+        if name == target_name:
+            # Return the associated number
+            print(f'It took {num_checks}')
+            return number
+    # If we loop through all of the contacts without returning, we know target is not in the book
+    print(f'It took {num_checks}')
+    return -1
+
+
+# Best Case - O(1) - Constant Time
+print(get_phone_number(contacts, 'Alice'))
+
+# Worst Case - O(n) - Linear Time
+print(get_phone_number(contacts, "Victor"))
+
+
+def find_all(address_book, target_name):
+    output = []
+    num_checks = 0
+    # Loop through each tuple in the address book - unpack tuple - 0-index is name, 1-index is number
+    for name, number in address_book:
+        num_checks += 1
+        # Compare the name to the target name
+        if name == target_name:
+            output.append(number)
+    print(f'It took {num_checks}')
+    return output if output else -1
+
+# Best Case - O(n) - Linear Time
+print(find_all(contacts, 'Alice'))
+
+# Worst Case - O(n) - Linear Time
+print(find_all(contacts, "Victor"))
+
+
+line_break()
+
+# Time and Space Complexities
+fruits = ['apple', 'banana', 'orange', 'grape', 'kiwi', 'watermelon', 'strawberry']
+
+
+# Indexing a List
+# Constant Time and Space - O(1)
+indexing = fruits[3]
+print(indexing)
+
+
+# Searching Through a List
+# Linear Time - O(n) and Constant Space - O(1)
+print('watermelon' in fruits)
+print('mango' in fruits)
+
+
+# Copying a list 
+# Linear Time - O(n) and Linear Space - O(n)
+copied_fruits = fruits[:]
+print(copied_fruits)
+
+
+# Assigning a value to a list index
+# Constant Time - O(1) and Constant Space - O(1)
+fruits[3] = 'grapefruit'
+print(fruits)
+
+
+# Insertion - list.append
+# Constant Time - O(1) and Constant Space - O(1)
+fruits.append('mango')
+print(fruits)
+
+
+# Insertion - list.insert
+# Linear Time - O(n) and Constant Space - O(1)
+fruits.insert(0, 'pear')
+print(fruits)
+
+
+# Deletion - list.pop - default -1 or any negative index
+# Constant Time - O(1) and Constant Space - O(1)
+last_element = fruits.pop()
+print(fruits)
+print(last_element)
+
+# Deletion - list.pop - any non-negative index
+# Linear Time - O(n) and Constant Space - O(1)
+first_element = fruits.pop(0)
+print(fruits)
+print(first_element)
+
+
+# Sorting - sorted() = Python sorted also uses the timsort
+# Linear Logarithmic Time - O(n log n) and Linear Space - O(n)
+sorted_fruits = sorted(fruits)
+print(sorted_fruits)
+print(fruits)
+
+
+# Sorting - list.sort - Python list uses timsort sorting algorithm
+# Linear Logarithmic - O(n log n) and Constant Space - O(1)
+fruits.sort()
+print(fruits)
+
+
+
+line_break()
+# Time and Space Complexities of Python Dictionaries
+
+fruit_counts = {}
+
+# Insertion
+# Constant Time and Constant Space - O(1)
+fruit_counts['apple'] = 10
+fruit_counts['banana'] = 15
+fruit_counts['orange'] = 20
+
+print(fruit_counts)
+
+
+# Accessing
+# Constant Time and Constant Space - O(1)
+print(fruit_counts['apple'])
+print(fruit_counts.get('banana'))
+print(fruit_counts.get('strawberry', 'No Strawberries'))
+
+
+# Searching
+# Constant Time and Constant Space - O(1)
+print('apple' in fruit_counts)
+print('watermelon' in fruit_counts)
+
+
+# Updating value via a key
+# Constant Time and Constant Space - O(1)
+fruit_counts['banana'] = 30
+print(fruit_counts)
+
+
+# Removing Key,Value pairs
+# Constant Time and Constant Space - O(1)
+fruit_counts.pop('orange')
+print(fruit_counts)
+
+
+# Real World Application - Authentication
+
+# users = [
+#     ('user1', 'password1'),
+#     ('user2', 'password2'),
+#     ('user3', 'password3'),
+# ]
+
+
+# print('To Log In please enter your credentials')
+# username = input('Enter username: ')
+# password = input('Enter password: ')
+
+# for user in users:
+#     if user[0] == username and user[1] == password:
+#         print('You have successfully logged in')
+#         break
+# else: # An else after a for loop only runs if the for loop does not break
+#     print('Incorrect username/password')
+
+
+# Setup again but with a dictionary
+users = {
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3",
+}
+
+print('To Log In please enter your credentials')
+username = input('Enter username: ')
+password = input('Enter password: ')
+
+
+if username in users and users[username] == password:
+    print('You have successfully logged in')
+else:
+    print('Incorrect username/password')
+
