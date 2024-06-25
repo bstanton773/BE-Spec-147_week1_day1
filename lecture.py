@@ -620,16 +620,12 @@ print(fruit_counts)
 
 # Real World Application - Authentication
 
-# users = [
-#     ('user1', 'password1'),
-#     ('user2', 'password2'),
-#     ('user3', 'password3'),
-# ]
+users = [(f"user{i}", "password{i}") for i in range(100000)]
 
 
-# print('To Log In please enter your credentials')
-# username = input('Enter username: ')
-# password = input('Enter password: ')
+print('To Log In please enter your credentials')
+username = input('Enter username: ')
+password = input('Enter password: ')
 
 # for user in users:
 #     if user[0] == username and user[1] == password:
@@ -637,22 +633,28 @@ print(fruit_counts)
 #         break
 # else: # An else after a for loop only runs if the for loop does not break
 #     print('Incorrect username/password')
+start = time.time()
+if (username, password) in users: # Linear Time Search
+    print('You have successfully logged in')
+else:
+    print('Incorrect username/password')
+end = time.time()
 
+print(end - start)
 
 # Setup again but with a dictionary
-users = {
-    "user1": "password1",
-    "user2": "password2",
-    "user3": "password3",
-}
+users = {f"user{i}": f"password{i}" for i in range(100000)}
 
 print('To Log In please enter your credentials')
 username = input('Enter username: ')
 password = input('Enter password: ')
 
-
-if username in users and users[username] == password:
+start = time.time()
+if username in users and users[username] == password: # Constant Time 
     print('You have successfully logged in')
 else:
     print('Incorrect username/password')
+end = time.time()
 
+
+print(end - start)
